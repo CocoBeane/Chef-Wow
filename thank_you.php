@@ -30,8 +30,9 @@ if (empty($error_messages)) {
 		echo "Thanks " . $username . ", you have successfully signed up!";
 } else {
 	foreach ($error_messages as $error_message) {
-		echo $error_message . "</br><a href='signup.php'>Try again..</a>";
+		echo $error_message;
 	}
+	echo "</br><a href='signup.php'>Try again</a>";
 }
 
 ?>
