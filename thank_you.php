@@ -1,9 +1,9 @@
 <html>
 <head>
 <?php 
-// PATH: Applications/MAMP/htdocs
-require ("/Applications/MAMP/htdocs/functions/main_functions.php");
-require ("/Applications/MAMP/htdocs/functions/add_user_functions.php");
+// PATH: Applications/MAMP/htdocs/Chef-Wow
+require ("/Applications/MAMP/htdocs/Chef-Wow/functions/main_functions.php");
+require ("/Applications/MAMP/htdocs/Chef-Wow/functions/add_user_functions.php");
 connect();
 ?>
 	<title>Thank you!</title>
@@ -11,7 +11,7 @@ connect();
 <body>
 	
 <?php
- 
+
  $username = $_POST['username'];
  $email = $_POST['email'];
  $password1 = $_POST['password1'];
@@ -20,10 +20,19 @@ connect();
  $gender = $_POST['gender'];
  $location = $_POST['location'];
 	
-$error_messages = array();
+$password_check = passwords_match($password1, $password2);
+$required_field_check = required_fields_are_present($username, $email, $password1, $birthday);
+$email_check = email_check($email);
+$birthday_check = birthday_check($birthday);
 
-array_push($error_messages, passwords_match($password1, $password2));
-array_push($error_messages, required_fields_are_present($username, $email, $password1, $birthday));
+if ($password_check != "" || $required_field_check != "" || $email_check != "" || $birthday_check != "") {
+	$error_messages = array();
+	array_push($error_messages, $password_check);
+	array_push($error_messages, $required_field_check);
+	array_push ($error_messages, $email_check);
+	array_push ($error_messages, $birthday_check);
+}
+
 
 if (empty($error_messages)) {
 		add_user($username, $email, $password1, $birthday, $gender, $location);
