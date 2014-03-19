@@ -6,10 +6,17 @@ require ("/Applications/MAMP/htdocs/Chef-Wow/functions/main_functions.php");
 require ("/Applications/MAMP/htdocs/Chef-Wow/functions/add_user_functions.php");
 connect();
 ?>
+<link rel="stylesheet" type="text/css" href="/css/page_style.css">
 	<title>Thank you!</title>
 </head>
 <body>
-	
+<div id="container">
+	<div id="logo">
+		LOGO GOES HERE
+	</div>	
+	<div id="sign-in">
+		SIGN IN!
+	</div>
 <?php
 
  $username = $_POST['username'];
@@ -45,6 +52,7 @@ if (empty($error_messages)) {
 }
 
 ?>
+</div>
 </body>
 <?php #disconnect();
  ?>
