@@ -1,52 +1,29 @@
-#container {
-	background-color: powderblue;
+a:link {
+	color:cornflowerblue;
+}
+a:visited {
+	color:purple;
+}
+a:hover {
+	color:black;
 }
 
-#logo {
-	background:cornflowerblue;
-	border-radius:5px;
-	color:yellow;
-	float:left;
-	height:150px;
-	width:50%;
+body {
+	background-color:powderblue;
 }
 
-#sign-in {
-	background:black;
-	border-radius:10px;
-	color:white;
-	float:right;
-	height:40;
-	padding-top:20px;
-	text-align:center;
-	width:200px;
-}
-
-#nav-bar {
+#button{
 	background-color:gold;
-	border-radius: 5px;
-	clear:both;
-	margin-left:auto;
-	margin-right:auto;
-	padding:15px;
-	text-align:center;
-	width:99%;
+	border:2px solid cornflowerblue;
+	border-radius: 3px;
+	color:cornflowerblue;
+	padding:10px, 5px, 10px, 5px;
 }
 
-ul {
-	list-style-type:none;
-	margin:0;
-	padding:0;
-}
-
-li.navigation {
-	display:inline;
-	font-size:16px;
-	padding:20px;
-}
-
-#form {
+#content {
 	border:5px solid gray;
+	border-radius: 10px;
+	color:cornflowerblue;
 	margin:10px;
 	margin-left:auto;
 	margin-right:auto;
@@ -55,9 +32,35 @@ li.navigation {
 	width:90%;
 }
 
-.required {
-	color: red;
-	}
-.required:after{
-	content: " *";
+.descriptor {
+	font-size:11px;
+	color:gray;
 }
+
+h3 {
+	color:cornflowerblue;
+	font-family:Georgia;
+	font-style:italic;
+	text-decoration:underline;
+}
+
+input {
+	border:1px solid black;
+}
+
+label {
+	color:cornflowerblue;
+	font-style:bold;
+}
+
+.required:after {
+	content:" *";
+	color:red;
+}
+
+#thank-you {
+	text-align:center;
+	color:red;
+	font-style:italic;
+}
+

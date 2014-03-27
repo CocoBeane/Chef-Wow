@@ -1,0 +1,59 @@
+#logo {
+	background:cornflowerblue;
+	border:2px solid grey;
+	border-radius: 2em 1em 4em / 0.5em 3em;
+	color:gold;
+	float:left;
+	font-family:Georgia;
+	font-size:36px;
+	padding:50px;
+	text-align:center;
+	width:50%;
+}
+
+#nav-bar {
+	background-color:gold;
+	border:2px solid grey;
+	border-radius:4em 4em 1em 1em; 
+	clear:both;
+	font-family:georgia;
+	margin-left:auto;
+	margin-right:auto;
+	padding:15px;
+	text-align:center;
+	width:99%;
+}
+
+#nav-bar ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+#nav-bar li {
+	display:inline;
+	font-size:16px;
+	padding:20px;
+}
+
+#sign-in {
+	background:cornflowerblue;
+	border:2px solid grey;
+	border-radius:2em 1em 4em / 0.5em 3em;
+	color:white;
+	height:40;
+	float:right;
+	padding-top:20px;
+	text-align:center;
+	width:150px;
+}
+
+#sign-in a {
+	color: gold;
+	text-decoration: none;
+}
+
+span {
+	font-size:38px;
+	font-style:italic;
+}
