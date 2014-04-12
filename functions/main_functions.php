@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 function connect() {
 	// Create connection
@@ -11,9 +11,15 @@ function connect() {
 }
 
 function add_user($username, $email, $password1, $birthday, $gender, $location) {
-	mysqli_query("INSERT INTO `chef_wow`.`users` (`username`, `email`, `password`, `birthday`, `gender`, `location`)
-	VALUES 
-	($username, $email, $password1, $birthday, $gender, $location)");
+	// validataion ?
+
+	$connect = mysqli_connect("localhost","root","root","chef_wow");
+	$result = mysqli_query($connect, "INSERT INTO chef_wow.users (username, email, password, birthday, gender, location) 
+	VALUES('$username', '$email', '$password1', '$birthday', '$gender', '$location')");
+
+	if ($result == false) {
+		print_r (mysqli_error_list($connect));
+	}
 }
 
 function disconnect() {

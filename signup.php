@@ -1,13 +1,5 @@
-<html>
-<head>
-	<title>Chef WOW!</title>
-	<link rel="stylesheet" type="text/css" href="css/page_style.css">
-	<link rel="stylesheet" type="text/css" href="css/header_style.css">
-</head>
-	<body>
-		<div id="container">
-		
-		<?php require ("/Applications/MAMP/htdocs/Chef-Wow/header.php");?>
+		<?php require ("/Applications/MAMP/htdocs/Chef-Wow/header.php");
+		?>
 			
 			<div id="content">
 				<h3 align="center">Sign up</h3>

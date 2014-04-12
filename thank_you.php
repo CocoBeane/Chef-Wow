@@ -1,21 +1,11 @@
-<html>
-	<head>
-	<title>Thank you!</title>
-	<?php 
-		require ("/Applications/MAMP/htdocs/Chef-Wow/functions/main_functions.php");
-		require ("/Applications/MAMP/htdocs/Chef-Wow/functions/add_user_functions.php");
-		require ("/Applications/MAMP/htdocs/Chef-Wow/header.php");
-		connect();
+<?php 
+	require ("/Applications/MAMP/htdocs/Chef-Wow/functions/main_functions.php");
+	require ("/Applications/MAMP/htdocs/Chef-Wow/functions/add_user_functions.php");
+	require ("/Applications/MAMP/htdocs/Chef-Wow/header.php");
 	?>
-	<link rel="stylesheet" type="text/css" href="css/page_style.css">
-	<link rel="stylesheet" type="text/css" href="css/header_style.css">
-	</head>
-
-	<body>
-		<div id="container">
+	
 			<div id="content">
-			<?php
-				
+			<?php				
 	 			$username = $_POST['username'];
 	 			$email = $_POST['email'];
 	 			$password1 = $_POST['password1'];
@@ -29,7 +19,8 @@
 				$email_check = email_check($email);
 				$birthday_check = birthday_check($birthday);
 
-				if ($password_check != "" || $required_field_check != "" || $email_check != "" || $birthday_check != "") {
+				if ($password_check != "" || $required_field_check != "" || $email_check != "" || $birthday_check != ""
+					) {
 					$error_messages = array();
 					array_push($error_messages, $password_check);
 					array_push($error_messages, $required_field_check);
@@ -51,6 +42,4 @@
 			</div>
 		</div>
 	</body>
-
-<?php #disconnect(); ?>
 </html>
