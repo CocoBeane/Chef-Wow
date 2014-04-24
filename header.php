@@ -1,4 +1,10 @@
 <?php
+	session_start();
+
+	if (!isset($_SESSION['username'])){
+		if (valid_user($_POST['username'], $_POST['password']) == true)
+			$_SESSION['username'] = $_POST['username'];
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -10,15 +16,11 @@
 	<body>
 		<div id="container">
 <div id="logo">
-	Chef <span>WOW!</span><br>
-</div>
-			
+	Chef <span>WOW!</span>
+</div>		
 <div id="sign-in">
 	<?php
-		if ($_SESSION['username'] != "" )
-			echo "Welcome back, " . $_SESSION['username'];
-		else
-			echo "<a href=sign_in.php>SIGN IN</a>";
+		echo isset($_SESSION['username']) ? "<a href=logout.php>LOG OUT</a>" : "<a href=sign_in.php>SIGN IN</a>";
 	?>
 </div>
 			

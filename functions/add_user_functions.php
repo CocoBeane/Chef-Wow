@@ -2,7 +2,6 @@
 
 function passwords_match ($password1, $password2) {
 	if ($password1 != $password2){
-		echo "password miss match.";
 		return "Your passwords did not match!";
 	}
 }
