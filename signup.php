@@ -8,29 +8,29 @@
 				<form id="sign up" name="sign up" action="thank_you.php" method="post">
 					<p style ="color:red;font-size:10px;">* indicates a required field</p>
 					
-					<label class="required">Username:</label>
-					<input type="text" name="username">
+					<label>Username:</label>
+					<input type="text" name="username" class="required">
 					</br>
 					<span class="descriptor">Pick a nickname that you want to go by on the site.</span>
 					</br>
 					<p>
-					<label class="required">Email address:</label>
-					<input type="text" name="email">
+					<label>Email address:</label>
+					<input type="text" name="email" class="required">
 					</br>
 					<span class="descriptor">Provide an email address so we can contact you if we need to.</span>
 					</br>
 					<p>
-					<label class="required">Password:</label>
-					<input type="password" name="password1">
+					<label>Password:</label>
+					<input type="password" name="password1" class="required">
 					</br>
-					<label class="required">Re-type password:</label>
-					<input type="password" name="password2">
+					<label>Re-type password:</label>
+					<input type="password" name="password2" class="required">
 					</br>
 					<span class="descriptor">Create a password that you'll use when you log in.</span>
 					<p>
-					<label class="required">What is your birthday?</label>
+					<label>What is your birthday?</label>
 					</br>
-					<input type="text" name="birthday" placeholder="MM/DD/YYYY">
+					<input type="text" name="birthday" class="required" placeholder="MM/DD/YYYY">
 					</p>
 					<p>
 					<label>Gender:</label></br>

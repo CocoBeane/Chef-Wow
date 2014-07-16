@@ -1,5 +1,4 @@
 <?php 
-	require ("/Applications/MAMP/htdocs/Chef-Wow/functions/main_functions.php");
 	require ("/Applications/MAMP/htdocs/Chef-Wow/functions/add_user_functions.php");
 	require ("/Applications/MAMP/htdocs/Chef-Wow/header.php");
 	?>
