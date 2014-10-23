@@ -1,6 +1,6 @@
 <?php 
 
-function add_nutrition_facts($nutrition_values) {
+/*function add_nutrition_facts($nutrition_values) {
 	$connection = mysqli_connect("localhost","root","root","chef_wow");
 	$result = mysqli_query($connection, 
 	
@@ -35,14 +35,6 @@ function add_nutrition_facts($nutrition_values) {
 		'$nutrition_values[10]',
 		'$nutrition_values[11]',
 		'$nutrition_values[12]')"
-	//$i = 0
-	//	while ($i < count($values)){
-	//		foreach ($nutritional_values as $value) {
-	//			$string = $string + $value;
-	//			$string = $string + ", "};
-	//			$i++;
-	//		}
-	//	}
 	);
 
 	//return ID for entry that was just created and save it as a variable for the ingredients table
@@ -56,7 +48,7 @@ function add_ingredient($main_values, $new_nutrition_id) {
 
 	//insert values into database
 		"INSERT INTO ingredients (name, image_url, nutrition_id) VALUES ('$main_values[0]', '$main_values[1]', '$new_nutrition_id')");
-}
+}*/
 
 
 function add_user($username, $email, $password1, $birthday, $gender, $location) {

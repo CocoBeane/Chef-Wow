@@ -1,0 +1,32 @@
+var temp = $('#SelectIngredient').val() + " - " + $('#IngredientAmount').val()
+
+
+$('#AddIngredientToList').click (function () {
+	var temp = $('#SelectIngredient').val() + " - " + $('#IngredientAmount').val()
+	$('#IngredientsList')
+     .append($("<option></option>")
+     .attr("value",temp)
+     .text("TEXT:" + temp));
+})
+
+
+
+
+
+
+$.each(selectValues, function(key, value) {   
+     $('#mySelect')
+         .append($("<option></option>")
+         .attr("value",key)
+         .text(value)); 
+});
+
+
+
+selectValues = [[k,v], [k,v]]
+$.each(selectValues, function(key, value) {   
+     $('#mySelect')
+         .append($("<option></option>")
+         .attr("value",key)
+         .text(value)); 
+});

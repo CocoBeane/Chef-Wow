@@ -12,12 +12,18 @@ body {
 	background-color:powderblue;
 }
 
-#button{
+.button{
 	background-color:gold;
 	border:2px solid cornflowerblue;
 	border-radius: 3px;
 	color:cornflowerblue;
 	padding:10px, 5px, 10px, 5px;
+}
+
+.button:disabled {
+	background-color: #dddddd;;
+	color:grey;
+	border: #dddddd;
 }
 
 #content {
@@ -46,12 +52,6 @@ h3 {
 
 input {
 	border:1px solid black;
-}
-
-#button:disabled {
-	background-color: #dddddd;;
-	color:grey;
-	border: #dddddd;
 }
 
 label {

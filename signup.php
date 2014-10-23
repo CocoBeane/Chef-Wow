@@ -5,7 +5,7 @@
 				<h3 align="center">Sign up</h3>
 				<p align="center">By creating an account, you can save recipes in your very own magic recipe book, share 
 				your favorite recipes with friends, and even create recipes of your own!</p> 
-				<form id="sign up" name="sign up" action="thank_you.php" method="post">
+				<form id="sign up" name="sign up" action="thank_you.php" method="post" active="active">
 					<p style ="color:red;font-size:10px;">* indicates a required field</p>
 					
 					<label>Username:</label>
@@ -41,7 +41,7 @@
 					<p>
 					<label>Location:</label> <input type="text" name="location">
 					</br></br>	
-					<input id="button" type="submit" value="Submit">	
+					<input class="button" type="submit" value="Submit" disabled="">	
 				</form>
 			</div>
 		</div>

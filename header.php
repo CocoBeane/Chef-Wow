@@ -2,10 +2,12 @@
 	require ("/Applications/MAMP/htdocs/Chef-Wow/functions/main_functions.php");
 	session_start();
 
-	//if ($_SESSION['username'] !== null && $_POST['username'] !== null && $_POST['password'] !== null){
-	//	if (valid_user($_POST['username'], $_POST['password']) == true)
-	//		$_SESSION['username'] = $_POST['username'];
-	//}
+	if (
+		//$_SESSION['username'] !== null && 
+		$_POST['username'] !== null && $_POST['password'] !== null){
+			if (valid_user($_POST['username'], $_POST['password']) == true)
+			$_SESSION['username'] = $_POST['username'];
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -19,7 +21,7 @@
 	<body>
 		<div id="container">
 <div id="logo">
-	Chef <span>WOW!</span>
+	Chef <span id="wow">WOW!</span>
 </div>		
 <div id="sign-in">
 	<?php
@@ -29,9 +31,9 @@
 			
 <div id="nav-bar">
 		<ul>
-			<li class="navigation"><a href="/Chef-Wow/signin.php">Home</a></li>
-			<li class="navigation"><a href="/Chef-Wow/mybook.php">My Recipe Book</a></li>
-			<li class="navigation"><a href="/Chef-Wow/recipes.php">Browse Recipes</a></li>
-			<li class="navigation"><a href="/Chef-Wow/episodes.php">Episodes</a></li>
+			<li class="navigation"><a href="/Applications/MAMP/htdocs/Chef-Wow/signin.php">Home</a></li>
+			<li class="navigation"><a href="/Applications/MAMP/htdocs/Chef-Wow/mybook.php">My Recipe Book</a></li>
+			<li class="navigation"><a href="/Applications/MAMP/htdocs/Chef-Wow/recipes.php">Browse Recipes</a></li>
+			<li class="navigation"><a href="/Applications/MAMP/htdocs/Chef-Wow/episodes.php" id="episodes" >Episodes</a></li>
 		</ul>
 </div>
