@@ -84,4 +84,16 @@
 			"INSERT INTO recipe_ingredients (recipe_id, ingredient, quantity) VALUES ('$recipe_id', '$quantity_and_ingredient_array[1]', '$quantity_and_ingredient_array[0]')");
 		}
 	}
+
+	//display ingredients from database in ingredients select box
+	function display_ingredients_in_select(){
+		//connect and pull data collection from ingredients database
+		$result = mysqli_query(connect(),
+		"SELECT id, name, nutrition_id FROM ingredients ORDER BY name ASC");
+
+		//echo each row to the select box
+		while ($row = mysqli_fetch_assoc($result)) {
+        	echo ("<option db_id=" .$row['id']. "> " .$row['name']. "</option>");
+    	}
+	}
 ?>

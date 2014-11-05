@@ -1,6 +1,7 @@
 <?php 
 	require ("/Applications/MAMP/htdocs/Chef-Wow/header.php");
 	require ("/Applications/MAMP/htdocs/Chef-Wow/functions/add_new_functions.php");
+	// require new file (maybe?)
 ?>
 <link rel="stylesheet" type="text/css" href="/Chef-Wow/styles/add_new_page_style.css">
 <script src="/Chef-Wow/functions/AddNew_jsFunctions.js"></script>
@@ -39,7 +40,9 @@
 					<p>
 					<select name="SelectIngredient" id="SelectIngredient">
 						<option value="" disabled selected>Select Ingredient</option>
-						<option>Example Ingredient</option>
+						<?php
+						display_ingredients_in_select();
+						?>
 					</select>
 					Amount: <input type="text" id="IngredientAmount" placeholder="Ex. 4 tablespoons">
 					<br>
