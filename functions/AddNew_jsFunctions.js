@@ -36,8 +36,9 @@ addNew = {
 	AddIngredientToRecipe: function(){
 		$('#AddIngredientToList').click (function () {
 			if ($('#IngredientAmount').val() != "" && $('#SelectIngredient').val() != "") {
-				var IngredientAndAmount = "<span data-name='qty'>" + $('#IngredientAmount').val() + " - " + "</span> <span data-name='ingredient'>" + $('#SelectIngredient').val() + "</span>";
-				var ListEntry = "<div class='ListedIngredient'>"+ IngredientAndAmount +" <a href='' class=Delete id='DeleteItem'>(-)</a></div>";
+				var IngredientAndAmount = $('#IngredientAmount').val() + " - " + $('#SelectIngredient').val();
+				var IngredientDbId = $('option:selected').attr('db_id');
+				var ListEntry = "<div class='ListedIngredient' db_id=" + IngredientDbId + ">" + IngredientAndAmount +" <a href='' class=Delete id='DeleteItem'>(-)</a></div>";
 				
 				$('#IngredientsList').append(ListEntry);
 			} else {
@@ -62,11 +63,12 @@ addNew = {
 			$('.ListedIngredient').each (function(number) {
 				var number = number++
 				var IngredientPieces = $(this).text().split(" - ");
+				var ingredientDatabaseId = $(this).attr("db_id");
 				$('<input>').attr({
 	    			type: "hidden",
 	    			id: "hidden_ingredient_" + number,
 	    			name: "hidden_ingredient_" + number,
-	    			value: IngredientPieces[0].trim() + "##" + IngredientPieces[1].trim().slice(0,-4)
+	    			value: IngredientPieces[0].trim() + "##" + IngredientPieces[1].trim().slice(0,-4) + "##" + ingredientDatabaseId
 				}).appendTo($('#new_recipe'));
 			});
 		})

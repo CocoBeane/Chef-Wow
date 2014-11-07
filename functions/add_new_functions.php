@@ -81,7 +81,7 @@
 			//connect and insert to database
 			$result = mysqli_query(connect(),
 
-			"INSERT INTO recipe_ingredients (recipe_id, ingredient, quantity) VALUES ('$recipe_id', '$quantity_and_ingredient_array[1]', '$quantity_and_ingredient_array[0]')");
+			"INSERT INTO recipe_ingredients (recipe_id, ingredient, ingredient_id, quantity) VALUES ('$recipe_id', '$quantity_and_ingredient_array[1]', '$quantity_and_ingredient_array[2]', '$quantity_and_ingredient_array[0]')");
 		}
 	}
 
