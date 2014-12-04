@@ -31,9 +31,10 @@
 			
 <div id="nav-bar">
 		<ul>
-			<li class="navigation"><a href="/Applications/MAMP/htdocs/Chef-Wow/signin.php">Home</a></li>
-			<li class="navigation"><a href="/Applications/MAMP/htdocs/Chef-Wow/mybook.php">My Recipe Book</a></li>
-			<li class="navigation"><a href="/Applications/MAMP/htdocs/Chef-Wow/recipes.php">Browse Recipes</a></li>
-			<li class="navigation"><a href="/Applications/MAMP/htdocs/Chef-Wow/episodes.php" id="episodes" >Episodes</a></li>
+			<li class="navigation"><a href="/Chef-Wow/signin.php">Home</a></li>
+			<li class="navigation"><a href="/Chef-Wow/mybook.php">My Recipe Book</a></li>
+			<li class="navigation"><a href="/Chef-Wow/recipes.php">Browse Recipes</a></li>
+			<li class="navigation"><a href="/Chef-Wow/ingredients.php">Browse Ingredients</a></li>
+			<li class="navigation"><a href="/Chef-Wow/episodes.php" id="episodes" >Episodes</a></li>
 		</ul>
 </div>
