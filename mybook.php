@@ -1,24 +1,16 @@
-<?php
-	require ("/Applications/MAMP/htdocs/Chef-Wow/header.php");
+<?php require ("/Applications/MAMP/htdocs/Chef-Wow/header.php");?>
 
-	if ( isset($_SESSION['username']))
-		echo '<div id="content"><h3>My Recipe Book</h3> </div>';
-	else{	
-		'<div id="content">
-			<h3 align="center">Sign In</h3>
-			<form id="sign_in" name="sign_in" action="signin.php" method="post">
-			<p>
-			<label>Username:</label>
-			<input type="text" name="username">
-			</br>
-			<label>Password:</label>
-			<input type="password" name="password">
-			<input id="button" type="submit" value="Submit">
-			</form>
-			</br>
-			Or <a href="signup.php">sign up</a>
-		</div>';
-		}
-?>
-	</body>
+	<div id="content">
+		<?php
+			if (isset($_SESSION['username']))
+				echo "<h3>My Recipe Book</h3>
+				<p>signed in test test</p>";
+				//display_my_recipe_book();
+			else{
+				echo "<h4>Whoops, you have to be signed in to do that!</h4>";
+				show_sign_in_form();
+				}
+		?>
+	</div>
+</body>
 </html>

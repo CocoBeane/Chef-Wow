@@ -38,6 +38,20 @@ function valid_user($username, $password){
 	return mysqli_num_rows($results) >= 1 ? true : false;
 }
 
+//echo sign in form
+	function show_sign_in_form(){
+		echo '<form id="sign_in" name="sign_in" action="signin.php" method="post">
+			<p>
+			<label>Username:</label>
+			<input class="required" type="text" name="username">
+			</br>
+			<label>Password:</label>
+			<input class="required" type="password" name="password">
+			<br><br>
+			<input id="button" class="button" disabled="disabled" type="submit" value="Submit">
+			</form>
+			<p style="font-size:smaller">Or <a href="signup.php">sign up</a></p>';
+	}
 
 //recipe functions
 
