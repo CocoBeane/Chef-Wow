@@ -51,12 +51,20 @@ h3 {
 }
 
 input {
-	border:1px solid black;
+	border: 1px solid black;
 }
 
 label {
-	color:cornflowerblue;
-	font-style:bold;
+	color: cornflowerblue;
+	font-style: bold;
+}
+
+#add-to-book {
+	border: 1px solid gray;
+	height: 20px;
+    text-align: center;
+	width: auto;
+	white-space: normal;
 }
 
 p {
