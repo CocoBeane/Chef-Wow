@@ -1,65 +1,64 @@
 <?php 
 
-//find user id based on session username
-function find_user_id($username){
-	//connect to db
-	$connection = mysqli_connect("localhost","root","root","chef_wow");
-
-	$find_user_id_query = mysqli_query($connection,
-		"SELECT id FROM users WHERE username = '$username'");
-
-	$row = mysqli_fetch_assoc($find_user_id_query); 
-	return $row['id'];
-}
-
-//add current recipe to book
-function add_recipe_to_book(){
-	//connect to db
-	$connection = mysqli_connect("localhost","root","root","chef_wow");
+//check if recipe is in book already
+function is_recipe_active_in_book($id){
 
 	//set variables for use later
-	$username = $_POST['username'];
-	$recipe_id = $_POST['recipe_id'];
+	$username = $_SESSION['username'];
+	$recipe_id = $id;
 
 	//get user id from users table
 	$user_id = find_user_id($username);
 
-	//$connect and insert this info to db
-	$recipe_added_to_book = mysqli_query($connection, "INSERT INTO users_recipes (user_id, recipe_id) VALUES ('$user_id', '$recipe_id')");
+	//check database for a match of both, and return true or false
+	$find_match = mysqli_query(connect(), "SELECT * FROM users_recipes WHERE recipe_id = '$recipe_id' && user_id = '$user_id' && status ='active'");
 
-	return $recipe_added_to_book;
+	if (mysqli_num_rows($find_match) >= 1){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function is_recipe_inactive_for_user($recipe_id, $user_id){
+
+	//check database for a match of both with inactive status, and return true or false
+	$find_match = mysqli_query(connect(), "SELECT * FROM users_recipes WHERE recipe_id = '$recipe_id' && user_id = '$user_id' && status ='inactive'");
+
+	if (mysqli_num_rows($find_match) >= 1){
+		return true;
+	} else {
+		return false;
+	}
 }
 
 //display recipes on myBook page
 function display_my_recipe_book(){
-
-	//connect to db
-	$connection = mysqli_connect("localhost","root","root","chef_wow");
 
 	//get user id from users table
 	$username = $_SESSION['username'];
 	$user_id = find_user_id($username);
 
 	//connect and pull all saved recipe ids for user, match up with recipe info from recipe table
-
 	$my_book_contents = mysqli_query(connect(),
 	"SELECT recipes.id, recipes.name, recipes.image_url
 	FROM recipes, users_recipes
 	WHERE recipes.id = users_recipes.recipe_id
-	AND users_recipes.user_id = '$user_id';");
+	AND users_recipes.user_id = '$user_id' && users_recipes.status = 'active'");
 
-	//iterate over/display each with a link to the recipe page
-
+	//iterate over/display each with a link to the recipe page and option to delete
 	if (mysqli_num_rows($my_book_contents) == false){
 		echo "You should add some recipes to your book!<br><a href='/recipes.php'>Browse Recipes</a>";
 	} else {
 		while ($row = mysqli_fetch_assoc($my_book_contents)) {
 			echo 
-			"<li style='display: inline-block; vertical-align: top;'>
-				<a href='/Chef-Wow/show_recipe.php?id=" .$row['id']. "'> " .$row['name']. " 
-				<br> 
+			"<li style='display: inline-block; vertical-align: top;' id='".$row['id']."'>
+				<a href='/Chef-Wow/show_recipe.php?id=" .$row['id']. "'> " .$row['name']. "
+				<br>
 				<img src='" .$row['image_url']. "' style='width:200px; height:200px; padding:1px; border:2px solid grey;'>
 				</a>
+				<br>
+				<button type=button id='delete-from-book-".$row['id']."' name='delete-from-book-".$row['id']."' class='delete-from-book' data-id='".$row['id']."'>Delete</button>
 				</li>";
 		}
 	}	
@@ -68,9 +67,5 @@ function display_my_recipe_book(){
 //add ingredient to watched ingredients list
 
 //display watched ingredients
-
-//decide which functions to execute for ajax call/add to book button on recipe page
-if (isset($_POST['username']) && isset($_POST['recipe_id']))
-     add_recipe_to_book();
 
 ?>

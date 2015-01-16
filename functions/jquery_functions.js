@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	chefWow.RequiredFields();
   chefWow.addRecipeToBook();
+  chefWow.deleteRecipeFromBook();
 });
 
 chefWow = {
@@ -40,7 +41,7 @@ chefWow = {
       var recipe_id = $("#recipe-id").val();
       $.ajax({           
         type: "POST",  
-        url:"/Chef-Wow/functions/recipe_book_functions.php",  
+        url:"/Chef-Wow/functions/php_ajax_functions.php",  
         data: {
           username: username, 
           recipe_id: recipe_id
@@ -53,7 +54,8 @@ chefWow = {
 
         success: function(resp)
         {
-          $("#add-to-book").html("Recipe added to book!")
+          $("#add-to-book").html("Recipe added to book!"),
+          chefWow.DisableButton();
         },
 
         error: function(e)
@@ -63,7 +65,40 @@ chefWow = {
         }  
       });
     });
-  }
+  },
+
+  deleteRecipeFromBook: function(){
+    $(".delete-from-book").click(function(){
+      //many variables of the same name -- recipe id. need to specify 'this one'
+      var username = $("#username").val();
+      var recipe_id = $(this).data('id');
+
+      $.ajax({           
+        type: "POST",  
+        url:"/Chef-Wow/functions/php_ajax_functions.php",  
+        data: {
+          username: username, 
+          recipe_id_to_delete: recipe_id
+        },
+
+        beforeSend: function()
+        {                   
+          $("#delete-from-book").html("deleting")
+        },
+
+        success: function(resp)
+        {
+          $("li[id=" + recipe_id + "]").remove();
+        },
+
+        error: function(e)
+        {  
+          console.log('Error: ' + e);
+          $(".delete-from-book").html("Whoops! Try again later.")  
+        }  
+      });
+    });
+  }  
 }
   
 
